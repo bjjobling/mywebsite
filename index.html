@@ -1,0 +1,94 @@
+<!DOCTYPE html>		<!-- declares HTML5 -->
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Prototyping website, with examples
+										of Javascript and xml">
+			<!-- keywords are search engine word bucket -->
+	<meta name="keywords" content="html">
+			<!-- Stylesheets -->
+			<!-- title tag will be used if saved as a favorite.
+					Also used by search engines as result title -->
+	<title>BJ Jobling</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+
+<body>
+
+	<header>
+		<h1 align="center">A Crash Course in JavaScript</h1>	
+	</header>
+	<main>
+	<h2>Something catchy here</h2>
+	<p>A smart man told me recently that I would be wise to become
+	familiar with JavaScript, so the purpose of this page is to help me explore
+	the basics as I build my knowledge and competency. The same good gentleman
+	also indicated that .xml should probably be on my radar, so I'm glad we
+	have a three-day weekend coming up...</p>
+	<hr>
+	<h2>A practical application</h2>
+	<p>For a while I owned a sailboat, and every sailor wants to know how
+	fast their boat can go. A sailboat's best speed is primarily determined
+	by the strength and relative direction of the wind. This information
+	is provided to newer boat owners via a designer's performance chart known
+	as a <a href="https://en.wikipedia.org/wiki/Polar_diagram_(sailing)"
+	target="_blank">polar diagram</a>. The diagram would provide a potential
+	hull speed over a range of wind speeds and relative wind angles.</p>
+	<img src="Polar_wiki_180x240.jpg" alt "polar chart explanatory
+	diagram">
+	<p>Like many boats of its era, my 1977 Tartan 37, <i>Island Pearl,</i> did
+	not come with such a chart. However, over the years various Tartan owners
+	had gathered performance data on their own boats and shared with other
+	owners on the forums. Some had submitted it to the Offshore Racing Congress
+	for inclusion in their <a href="https://jieter.github.io/orc-data/site/
+	#GRE/GRE1495" target="_blank">sailboat performance database</a>.</p>
+	<p>In 2020 I imported variously-sourced Tartan 37 data into an excel 
+	spreadsheet, along with that of it's European stablemate the Condor 37,
+	and produced polar charts which I then uploaded to the Tartan 37 Owner's
+	forum.</p>
+	<p>A copy of my original spreadsheet can be found
+	<a href="Tartan 37 Polar numbers.htm" target="_blank">here</a>.</p>
+	<h2>The challenge</h2>
+	<p>To reproduce the polar charts I produced in Excel on the web page using
+	JavaScript tools and .xml data imports. As I have a sum total of three
+	days' reading on html and JavaScript this will be a 'proof of concept' 
+	demonstration rather than 'best practices'.</p>
+	<h2>Limitations</h2>
+	One of the limitations I may already face is that the polar chart is not
+	(or was not) native to Excel, and is a modified 'donut' chart, with polar
+	coordinates <i>(r, θ)</i> converted to Cartesian <i>(x, y)</i> 
+	coordinates.</p>
+	<h3>Course of action #1</h3>
+	<p>Both <a href="https://plotly.com/javascript/polar-chart/"
+	target="_blank">Plotly</a> and <a href="https://www.chartjs.org/"
+	target="_blank">Chart.js</a> offer polar chart solutions, but so far
+	neither seems to offer a true polar coordinate chart; rather, conversion
+	to Cartesian coordinates seems to be required.</p>
+	<h3>Course of action #2</h3>
+	Project a Cartesian scatter or line chart onto a polar/radar background
+	image. This may be the simplest and most practical solution. Html allows
+	for precise positioning and plotting of images on a page; scaling for
+	different devices will be in order.</p>
+	
+	<h2>The result</h2>
+	<p>Hopefully something inspiring/successful here</p>
+	</main>
+		<aside>
+		<img src="IP_med.jpg" alt "Tartan 37 sailboat at anchor in
+		the Bahamas" style="width:222px;height:320px; padding:20px;">
+		<p text-align="center">My Tartan 37, <q>Island Pearl</q></p>
+		<img src="Condor37_polar1.png" alt "Polar chart built in Excel
+		from data for Condor 37 in 2020" style="width:250px;height:250px;
+		padding:10px;">
+		<p text-align="center">Tartan 37 Polar chart from 2020</p>
+	</aside>
+	<footer>
+		<p align="center"><i>This website is hosted on Github. DNS registrar
+		services through Hostinger. This site went live on Monday,
+		12 May 2025</i></p>
+	</footer>
+	
+</body>
+
+</html>	
