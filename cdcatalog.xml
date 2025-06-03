@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+  <CD>
+    <Title>Hide Your Heart</Title>
+    <Artist>Bonnie Tyler</Artist>
+    <Price>9.90</Price>
+  </CD>
+  <CD>
+    <Title>Greatest Hits</Title>
+    <Artist>Dolly Parton</Artist>
+    <Price>9.99</Price>
+  </CD>
+</Catalog>

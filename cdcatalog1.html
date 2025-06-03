@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title>XML to HTML Table</title>
+  <style>
+    table, th, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+    th, td {
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+<table id="data-table">
+  <thead>
+    <tr>
+	  <th>Title</th>
+	  <th>Artist</th>
+	  <th>Price</th>
+	</tr>
+  </thead>
+</table>
+
+<script>
+  fetch('cdcatalog.xml')
+    .then(response => response.text())
+    .then(data => {
+      let parser = new DOMParser();
+      let xmlDoc = parser.parseFromString(data, "text/xml");
+      let tableBody = "";
+      let entries = xmlDOC.getElementsByTagName("CD");
+
+      for (let i = 0; i < entries.length; i++) {
+        let title =
+entries[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue;	  
+        let artist =
+entries[i].getElementsByTagName("Artist")[0].childNodes[0].nodeValue;
+        let price =
+entries[i].getElementsByTagName("Price")[0].childNodes[0].nodeValue;
+
+        tableBody += `<tr>
+		<td>${title}</td>
+		<td>${artist}</td>
+		<td>${price}</td>
+		</tr>`;
+	  }
+      document.querySelector("#data-table tbody").innerHTML = tableBody;
+    })
+    .catch(error => console.error("Error:", error));
+</script>	
+
+</body>
+</html>

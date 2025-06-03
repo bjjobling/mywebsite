@@ -1,0 +1,202 @@
+<!DOCTYPE html>		<!-- declares HTML5 -->
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Prototyping website, with examples
+										of Javascript and xml">
+			<!-- keywords are search engine word bucket -->
+	<meta name="keywords" content="html">
+			<!-- Stylesheets -->
+			<!-- title tag will be used when saved as a favorite.
+					Also used by search engines as result title -->
+	<meta name="author" content="Bernard Jobling">
+	<meta http-equiv="refresh" content="300">
+	<title>BJ Jobling</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+	
+  <!-- gallery for polar charts with description -->
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 30%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}  <!-- end gallery -->
+	
+	
+	</style>
+	<script></script>	
+</head>
+
+<body>
+
+	<header>
+		<h1 align="center">A Crash Course in JavaScript</h1>	
+	</header>
+
+   <div>    <!-- horizontal navigation bar -->
+    <ul>
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="sandbox.html">Sandbox</a></li>
+      <li><a href="#homelab">HomeLab</a></li>
+      <li><a href="cdcatalog1.html">CD Test 1</a></li>
+      <li><a href="cdcatalog2.html">CD Test 2</a></li>
+      <li style="float:right"><a href="#about">About</a></li>
+    </ul>	
+	</div>  <!-- end horizontal navigation bar -->
+	
+	<main>
+	<h2>Something catchy here</h2>
+	<p>A smart man told me recently that I would be wise to become
+	familiar with JavaScript, so the purpose of this page is to help me explore
+	the basics as I build my knowledge and competency. The same good gentleman
+	also indicated that XML should probably be on my radar, so I'm glad we
+	have a three-day weekend coming up...</p>
+	<p>First; <a href="https://www.w3schools.com/html/default.asp" target=
+	"_blank"> HTML</a> and <a href="https://www.w3schools.com/css/default.asp"
+	target="_blank"> CSS</a>...</p>
+	<hr>
+	
+<style>
+.clearfix {
+  overflow: auto;
+}
+</style>
+
+	<div class="clearfix" style="margin: 20px; border: 2px solid gray; padding: 20px;">
+
+	<img src="Polar_wiki_180x240.jpg" alt "polar chart explanatory
+	diagram" style="float: right; margin:20px 10px 20px 20px; width:240px; height:320px;">
+	<h2>A practical application</h2>
+	<p>For a while I owned a sailboat, and every sailor wants to know how
+	fast their boat can go. A sailboat's best speed is primarily determined
+	by the strength and relative direction of the wind. This information
+	is provided to newer boat owners via a designer's performance chart known
+	as a <a href="https://en.wikipedia.org/wiki/Polar_diagram_(sailing)"
+	title="Open wikipedia in new tab" target="_blank">polar diagram</a>.
+	The diagram would provide a potential hull speed over a range of wind
+	speeds and relative wind angles.</p>
+	<p>Like many boats of its era, my 1977 Tartan 37, <i>Island Pearl,</i> did
+	not come with such a chart. However, over the years various Tartan owners
+	had gathered performance data on their own boats and shared with other
+	owners on the forums. Some had submitted it to the <abbr title="Offshore
+	Racing Congress">ORC</abbr> 
+	for inclusion in their <a href="https://jieter.github.io/orc-data/site/
+	#GRE/GRE1495" title="Open ORC's Condor 37 performance chart" 
+	target="_blank">sailboat performance database</a>.</p>
+	<!--  <br></br><br></br><br></br>  -->
+ </div>
+<br></br>
+	<p style="clear: right;">In 2020 I created my own polar charts to share
+	with fellow sailors. I imported variously-sourced Tartan 37 data into
+	an MS Excel 
+	spreadsheet, along with that of it's European stablemate the Condor 37,
+	and produced polar charts which I then uploaded to the Tartan 37 Owner's
+	forum.</p>
+
+
+<div class="gallery">
+  <a target="_blank" href="Tartan37polar10x12.jpg">
+    <img src="Tartan37polar10x12.jpg" alt="Cinque Terre" width="240px" height="200px">
+  </a>
+  <div class="desc">Tartan 37 polar chart. Data source: WayneH/Tartan37.com forum</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="Condor37polar10x12.jpg">
+    <img src="Condor37polar10x12.jpg" alt="Forest" width="240px" height="200px">
+  </a>
+  <div class="desc">Condor 37 numbers (s/v Cristel),
+  from https://jieter.github.io/orc-data/site/?#GRE/GRE1495</div>
+</div>
+
+
+  <!-- 	
+	<img src="Tartan37polar10x12.jpg" alt "Polar chart built in Excel
+		from data for Tartan 37 sailboat" style="width:480px;height:auto;
+		padding:30px;">
+		
+	<img src="Condor37polar10x12.jpg" alt "Polar chart built in Excel
+		from data for Condor 37 sailboat" style="width:480px;height:auto;
+		padding:30px;">
+		
+	-->
+	
+	<!-- iframe test -->
+	<p>iframe test; embedding an html page in an iframe window</p>
+	<iframe src="smallT37PolarChart.htm" height="300px" width="80%" 
+	 title="Iframe Example"></iframe> 
+	
+	
+	<p>A copy of my original spreadsheet can be found
+	<a href="smallT37PolarChart.htm" target="_blank">here</a>.</p>
+	<h2>The challenge</h2>
+	<p>To reproduce the polar charts I produced in Excel on the web page using
+	JavaScript tools and XML data imports. As I have a sum total of three
+	weeks' reading so far on HTML, CSS and JavaScript this will be a 'proof of concept' 
+	demonstration rather than 'best practices'.</p>
+	<h2>Limitations</h2>
+	Polar plot points are coordinates which use a radius <i>(r)</i> and an
+	angle relative to an axis <i>(θ)</i>. For sailboat performance charts,
+	<i>θ</i> is the wind angle relative to the direction the boat is moving,
+	and <i>r</i> is the maximum achieved speed at that angle. One of the
+	limitations I may already face is that the polar chart is not
+	(or was not) native to Excel, and is a modified 'donut' chart, with polar
+	coordinates <i>(r, θ)</i> converted to Cartesian <i>(x, y)</i> 
+	coordinates as an overlay.</p>
+	<h4>Course of action #1</h4>
+	<p>Both <a href="https://plotly.com/javascript/polar-chart/"
+	target="_blank">Plotly</a> and <a href="https://www.chartjs.org/"
+	target="_blank">Chart.js</a> offer polar chart solutions, but so far
+	neither seems to offer a true polar coordinate chart; rather, conversion
+	to Cartesian coordinates seems to be required.</p>
+	<h4>Course of action #2</h4>
+	Project a Cartesian scatter or line chart onto a polar/radar background
+	image. This is actually the technique used to produce the charts in MS
+	Excel. This may be the simplest and most practical solution. HTML allows
+	for precise positioning and plotting of images on a page; scaling for
+	different devices will be in order.</p>
+	
+	<h2>The result</h2>
+	<p>Hopefully something inspiring/successful here</p>
+	
+			<img src="minions-pyramid.gif" alt "Minions build pyramid upside down" 
+			style="width:240px; height:135px; padding:50px;">
+	
+	</main>
+	
+	<aside>
+		<img src="IP_med.jpg" alt "Tartan 37 sailboat at anchor in
+		the Bahamas" style="width:auto; height:360px; padding-top:80px;">
+		<p text-align="center">My Tartan 37, <i>Island Pearl</i></p>
+		<img src="Condor37_polar1.png" alt "Polar chart built in Excel
+		from data for Condor 37 in 2020" style="width:250px;height:250px;
+		padding:10px;">
+		<p text-align="center" style="padding:30px">Tartan 37 Polar chart
+		created in MS Excel in 2020</p>
+	</aside>
+	<footer>
+		<p align="center"><i>This website is hosted on Github. DNS registrar
+		services are through Hostinger. This site went live on Monday,
+		12 May 2025. Thanks for visiting. ~BJ</i></p>
+	</footer>
+	
+</body>
+
+</html>	

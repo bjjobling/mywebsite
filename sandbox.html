@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Prototyping website, with examples
+										of Javascript and xml">
+			<!-- keywords are search engine word bucket -->
+	<meta name="keywords" content="html">
+			<!-- Stylesheets -->
+			<!-- title tag will be used when saved as a favorite.
+					Also used by search engines as result title -->
+	<meta name="author" content="Bernard Jobling">
+	<meta http-equiv="refresh" content="300">
+	<title>BJ Jobling</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+article {
+  padding: 50px;
+}
+
+#test_polars {
+
+  border-collapse: collapse;
+  background-color: white;
+  width: 30%;
+  font-size: 80%;
+}
+
+#test_polars td, #test_polars th {
+  border: 1px solid #ddd;
+  padding: 4px 0 4px 20px;
+}
+
+#test_polars tr:nth-child(even){background-color: #f2f2f2;}
+
+#test_polars tr:hover {background-color: #ddd;}
+
+#test_polars th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+
+
+</style>
+
+	<script></script>	
+
+</head>
+
+<body>
+
+	<header>
+		<h1 align="center">Polar Chart Sandbox</h1>	
+	</header>
+
+   <div>    <!-- horizontal navigation bar -->
+    <ul>
+      <li><a href="index.html">Home</a></li>  <!-- <a href="html_images.asp">HTML Images</a> -->
+      <li><a class="active" href="sandbox.html">Sandbox</a></li>
+      <li><a href="#homelab">HomeLab</a></li>
+      <li style="float:right"><a href="#about">About</a></li>
+    </ul>	
+	</div>  <!-- end horizontal navigation bar -->
+
+<main>
+	<h2>Something catchy here</h2>
+	<p>I will try to describe the iterations of chart development as my
+	knowledge and the code complexity evolves. Going through tutorials is a
+	crawl-walk-run, building-block process. Effective, but frustrating to 
+	document whilst implementing multiple and sometimes redundant techniques.
+	</p>
+	<br><hr>
+	
+<h2>Simple polar chart data</h2>
+
+<p style="width: 30%; padding-right: 30px; float: left;">
+A simple table of values, with polar coordinates <i>(r, θ)</i> in the first two
+columns, and their corresponding Cartesian coordinates <i>(x, y)</i> in columns
+three and four. The chart is an image of the Cartesian plot in MS Excel. 
+</p>
+
+<table id="test_polars" style="float: left;">
+  <tr>
+    <th>Length <i>r</i></th>
+    <th>Angle <i>&#952</i></th>
+    <th><i>x</i></th>
+	<th><i>y</i></th>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+	<td>10</td>    
+  </tr>
+  <tr>
+    <td>9.25</td>
+    <td>30</td>
+    <td>4.63</td>
+	<td>8.01</td>
+  </tr>
+  <tr>
+    <td>7.5</td>
+    <td>60</td>
+    <td>6.5</td>
+	<td>3.75</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>90</td>
+    <td>6</td>
+	<td>0</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>120</td>
+    <td>4.33</td>
+	<td>-2.5</td>
+  </tr>
+  <tr>
+    <td>4.25</td>
+    <td>150</td>
+    <td>2.13</td>
+	<td>-3.68</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>180</td>
+    <td>0</td>
+	<td>-4.0</td>
+  </tr>
+  <tr>
+    <td>4.25</td>
+    <td>150</td>
+    <td>2.13</td>
+	<td>-3.68</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>120</td>
+    <td>4.33</td>
+	<td>-2.5</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>90</td>
+    <td>6</td>
+	<td>0</td>
+	</tr>
+  <tr>
+    <td>7.5</td>
+    <td>60</td>
+    <td>6.5</td>
+	<td>3.75</td>
+	</tr>
+  <tr>
+    <td>9.25</td>
+    <td>30</td>
+    <td>4.63</td>
+	<td>8.01</td>
+	</tr>
+  <tr>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+	<td>10</td> 
+	</tr>
+
+</table>
+
+	<img src="testpolar1.jpg" alt "polar chart explanatory
+	diagram" style="float: left; padding-left:60px; width:330px; height:330px;">
+
+
+
+<article style="clear: both;">
+
+<hr><br>
+	<section>
+	  <!--  Trying <canvas> element to render chart. Canvas API allows
+	        JavaScript to draw graphics on the canvas. Radial buttons can 
+	        provide interactive plot selection
+	  -->
+      <!--  getContext() method returns an object with tools (methods)
+	        for drawing
+      -->	
+	<canvas id="polar1Canvas" width="200" height="200" 
+	style="border:1px solid #d3d3d3;">
+	Your browser does not support the HTML canvas tag.</canvas>
+
+	<script>
+	var polar1Canvas = document.getElementById("polar1Canvas");
+	var ctx = polar1Canvas.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();
+	</script>
+
+	</section>
+	
+<section>
+<p>Image to use:</p>
+<img id="polar2" src="polar_reticle1.jpg" alt="Polar diagram background"
+ width="200px" height="200px">
+
+<p>Canvas to fill:</p>
+<canvas id="polar2Canvas" width="500" height="500"
+style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<p><button onclick="polar2Canvas1()">Try it</button>
+   <button onclick="polar2Canvas2()">Try again</button>
+   <button onclick="polar2Canvas3()">3rd thing</button>
+   <button onclick="polar2Canvas4()">Blank?</button>
+   </p>
+
+<script>
+function polar2Canvas1() {
+  var c = document.getElementById("polar2Canvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("polar2");
+  ctx.drawImage(img,10,10,480,480);
+ 
+
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();
+	
+}
+
+function polar2Canvas2() {
+  var c = document.getElementById("polar2Canvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("polar2");
+  ctx.drawImage(img,10,10,480,480);
+ 
+
+	ctx.moveTo(50,50);
+	ctx.lineTo(300,300);
+	ctx.stroke();
+	
+}
+function polar2Canvas3() {
+  var c = document.getElementById("polar2Canvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("polar2");
+  ctx.drawImage(img,10,10,480,480);
+ 
+
+	ctx.moveTo(50,50);
+	ctx.lineTo(300,300);
+	ctx.stroke();
+	
+}
+function polar2Canvas4() {
+  var c = document.getElementById("polar2Canvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("polar2");
+  ctx.drawImage(img,10,10,480,480);
+
+	
+}
+</script>
+
+</section>
+	
+	<section>
+	  <!--  Alternative to canvas is SVG (scalable vector graphics). 
+	  Description says 'SVG defines vector-based graphics in XML, which 
+	  sounds like a winner! Also, SVG are scalable and maintain quality 
+	  when resized
+	  -->
+	
+	<svg width="250" height="250">
+	<rect x="25" y="25" width="200" height="200" stroke="red"
+	stroke-width="6" fill="blue" />
+    Sorry, your browser does not support inline SVG.
+    </svg>
+	
+	
+	</section>
+	
+</article>
+
+
+</main>
+</body>
+</html>
