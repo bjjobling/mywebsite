@@ -23,14 +23,15 @@
 	  <th>Price</th>
 	</tr>
   </thead>
+  <tbody></tbody>
 </table>
 
 <script>
   fetch('cdcatalog.xml')
     .then(response => response.text())
-    .then(text => {
+    .then(data => {
       let parser = new DOMParser();
-      let xmlDoc = parser.parseFromString(text, "text/xml");
+      let xmlDoc = parser.parseFromString(data, "text/xml");
       let tableBody = "";
       let entries = xmlDOC.getElementsByTagName("CD");
 
@@ -48,7 +49,7 @@ entries[i].getElementsByTagName("Price")[0]childNodes[0].nodeValue;
 		<td>${Price}</td>
 		</tr>`;
 	  }
-      document.querySelector("#data-table tbody").innerHTML = tableBody;
+      document.querySelector("#data-table tbody").innerHTML = tableBody; <!-- changes the text of the element with id="data-table" (the table) -->
     })
     .catch(error => console.error("Error:", error));
 </script>	
