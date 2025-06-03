@@ -35,17 +35,17 @@
       let entries = xmlDOC.getElementsByTagName("CD");
 
       for (let i = 0; i < entries.length; i++) {
-        let title =
+        let Title =
 entries[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue;	  
-        let artist =
+        let Artist =
 entries[i].getElementsByTagName("Artist")[0].childNodes[0].nodeValue;
-        let price =
-entries[i].getElementsByTagName("Price")[0].childNodes[0].nodeValue;
+        let Price =
+entries[i].getElementsByTagName("Price")[0]childNodes[0].nodeValue;
 
         tableBody += `<tr>
-		<td>${title}</td>
-		<td>${artist}</td>
-		<td>${price}</td>
+		<td>${Title}</td>
+		<td>${Artist}</td>
+		<td>${Price}</td>
 		</tr>`;
 	  }
       document.querySelector("#data-table tbody").innerHTML = tableBody;
