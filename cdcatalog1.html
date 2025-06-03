@@ -29,9 +29,9 @@
 <script>
   fetch('cdcatalog.xml')
     .then(response => response.text())
-    .then(data => {
+    .then(Catalog => {
       let parser = new DOMParser();
-      let xmlDoc = parser.parseFromString(data, "text/xml");
+      let xmlDoc = parser.parseFromString(Catalog, "text/xml");
       let tableBody = "";
       let entries = xmlDOC.getElementsByTagName("CD");
 
